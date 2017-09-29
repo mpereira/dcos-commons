@@ -32,3 +32,9 @@ project(":frameworks/cassandra").name = "cassandra"
 
 include 'frameworks/helloworld/tests/tls/keystore'
 project(":frameworks/helloworld/tests/tls/keystore").name = 'keystore-app'
+
+include 'airflow'
+project(":airflow").name = "airflow"
+
+include 'frameworks/airflow'
+project(":frameworks/airflow").name = "airflow"
