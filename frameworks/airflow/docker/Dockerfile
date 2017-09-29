@@ -8,3 +8,4 @@ RUN pip install airflow && \
     pip install airflow[rabbitmq] && \
     pip install airflow[celery]
 
+ENV AIRFLOW_HOME ~/airflow
