@@ -1,0 +1,4 @@
+PACKAGE_NAME = 'celery'
+SERVICE_NAME = 'celery'
+DEFAULT_TASK_COUNT = 1
+

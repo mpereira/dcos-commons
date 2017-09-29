@@ -5,20 +5,49 @@ scheduler:
 pods:
   rabbitmq:
     count: {{NODE_COUNT}}
+    image: {{ERLANG_IMAGE}}
     placement: {{NODE_PLACEMENT}}
     {{#ENABLE_VIRTUAL_NETWORK}}
     networks:
       {{VIRTUAL_NETWORK_NAME}}:
         labels: {{VIRTUAL_NETWORK_PLUGIN_LABELS}}
     {{/ENABLE_VIRTUAL_NETWORK}}
+    uris:
+      - {{BOOTSTRAP_URI}}
+      - {{RABBITMQ_URI}}
     tasks:
       node:
         goal: RUNNING
-        cmd: "echo rabbitmq >> rabbitmq-container-path/output && sleep $SLEEP_DURATION"
+        cmd: {{RABBITMQ_VERSION}}/sbin/rabbitmq-server
+        env:
+          HOME: /mnt/mesos/sandbox/home
         cpus: {{NODE_CPUS}}
         memory: {{NODE_MEM}}
-        volume:
-          path: "rabbitmq-container-path"
-          type: {{NODE_DISK_TYPE}}
-          size: {{NODE_DISK}}
-        env:
+        ports:
+          epmd:
+            port: 4369
+          amqp:
+            port: 5672
+          amqp-tls:
+            port: 5671
+          erlang:
+            port: 25672
+          http:
+            port: 15672
+          #stomp:
+          #  port: 61613
+          #stop-tls:
+          #  port: 61614
+          mqtt:
+            port: 1883
+          mqtt-tls:
+            port: 8883
+          web-stomp:
+            port: 15674
+          web-mqtt:
+            port: 15675
+        volumes:
+          node-data-vol:
+            path: "home"
+            type: ROOT
+            size: 4096

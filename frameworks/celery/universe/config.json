@@ -9,7 +9,7 @@
             "title": "Service name",
             "description": "The name of the service instance",
             "type": "string",
-            "default": "rabbitmq"
+            "default": "celery"
           },
           "sleep": {
             "description": "The sleep duration in seconds before tasks exit.",
@@ -81,13 +81,13 @@
             "title": "CPU count",
             "description": "Template pod CPU requirements",
             "type": "number",
-            "default":0.5
+            "default":0.1
           },
           "mem": {
             "title": "Memory size (MB)",
             "description": "Template pod mem requirements (in MB)",
             "type": "integer",
-            "default":512
+            "default":252
           },
           "disk": {
             "title": "Disk size (MB)",

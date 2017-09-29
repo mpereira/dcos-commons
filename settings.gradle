@@ -41,3 +41,6 @@ project(":frameworks/airflow").name = "airflow"
 
 include 'frameworks/rabbitmq'
 project(":frameworks/rabbitmq").name = "rabbitmq"
+
+include 'frameworks/celery'
+project(":frameworks/celery").name = "celery"

@@ -1,17 +1,10 @@
 {
   "assets": {
-    "container": {
-      "docker": {
-        "erlang": "erlang:20.1-slim"
-      }
-    },
     "uris": {
       "jre-tar-gz": "{{jre-url}}",
       "libmesos-bundle-tar-gz": "{{libmesos-bundle-url}}",
-      "scheduler-zip": "{{artifact-dir}}/rabbitmq-scheduler.zip",
-      "executor-zip": "{{artifact-dir}}/executor.zip",
-      "bootstrap-zip": "{{artifact-dir}}/bootstrap.zip",
-      "rabbitmq-tar-xz": "https://s3-us-west-1.amazonaws.com/gabrielbackup/rabbitmq-server-generic-unix-3.6.12.tar.xz"
+      "scheduler-zip": "{{artifact-dir}}/celery-scheduler.zip",
+      "executor-zip": "{{artifact-dir}}/executor.zip"
     }
   },
   "images": {
