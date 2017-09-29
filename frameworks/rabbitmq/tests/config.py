@@ -1,0 +1,4 @@
+PACKAGE_NAME = 'rabbitmq'
+SERVICE_NAME = 'rabbitmq'
+DEFAULT_TASK_COUNT = 1
+
