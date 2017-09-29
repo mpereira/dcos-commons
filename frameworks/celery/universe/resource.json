@@ -2,7 +2,7 @@
   "assets": {
     "container": {
       "docker": {
-        "celery": "gabrielhartmann/celery"
+        "celery": "gabrielhartmann/celery:0.0.1"
       }
     },
     "uris": {
