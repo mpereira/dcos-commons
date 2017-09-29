@@ -1,9 +1,15 @@
 {
   "assets": {
+    "container": {
+      "docker": {
+        "celery": "gabrielhartmann/celery"
+      }
+    },
     "uris": {
       "jre-tar-gz": "{{jre-url}}",
       "libmesos-bundle-tar-gz": "{{libmesos-bundle-url}}",
       "scheduler-zip": "{{artifact-dir}}/celery-scheduler.zip",
+      "bootstrap-zip": "{{artifact-dir}}/bootstrap.zip",
       "executor-zip": "{{artifact-dir}}/executor.zip"
     }
   },

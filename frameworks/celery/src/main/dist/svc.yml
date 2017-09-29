@@ -5,24 +5,22 @@ scheduler:
 pods:
   celery:
     count: {{NODE_COUNT}}
+    image: {{CELERY_IMAGE}}
     placement: {{NODE_PLACEMENT}}
     {{#ENABLE_VIRTUAL_NETWORK}}
     networks:
       {{VIRTUAL_NETWORK_NAME}}:
         labels: {{VIRTUAL_NETWORK_PLUGIN_LABELS}}
     {{/ENABLE_VIRTUAL_NETWORK}}
+    uris:
+      - {{BOOTSTRAP_URI}}
     tasks:
       node:
         goal: RUNNING
-        cmd: "echo celery >> celery-container-path/output && sleep $SLEEP_DURATION"
+        cmd: "./bootstrap --resolve=false && PYTHONPATH=$MESOS_SANDBOX celery worker -l DEBUG"
         configs:
-          server-properties:
+          celeryconfig:
             template: celeryconfig.py.mustache
-            dest: $PYTHONPATH/celeryconfig.py
+            dest: celeryconfig.py
         cpus: {{NODE_CPUS}}
         memory: {{NODE_MEM}}
-        volume:
-          path: "celery-container-path"
-          type: {{NODE_DISK_TYPE}}
-          size: {{NODE_DISK}}
-        env:

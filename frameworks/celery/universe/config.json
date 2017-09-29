@@ -81,13 +81,13 @@
             "title": "CPU count",
             "description": "Template pod CPU requirements",
             "type": "number",
-            "default":0.1
+            "default":0.5
           },
           "mem": {
             "title": "Memory size (MB)",
             "description": "Template pod mem requirements (in MB)",
             "type": "integer",
-            "default":252
+            "default":512
           },
           "disk": {
             "title": "Disk size (MB)",
