@@ -22,6 +22,7 @@
   },
   {{/service.service_account_secret}}
   "env": {
+    "CLUSTER_NAME": "{{service.name}}",
     "PACKAGE_NAME": "{{package-name}}",
     "PACKAGE_VERSION": "{{package-version}}",
     "PACKAGE_BUILD_TIME_EPOCH_MS": "{{package-build-time-epoch-ms}}",
@@ -30,7 +31,6 @@
     "STATSD_URI": "{{resource.assets.uris.statsd-plugin-zip}}",
     "ELASTICSEARCH_URI" : "{{resource.assets.uris.elasticsearch-tar-gz}}",
     "ELASTICSEARCH_JAVA_URI" : "{{resource.assets.uris.elasticsearch-jre-tar-gz}}",
-    "XPACK_URI" : "{{resource.assets.uris.xpack-zip}}",
     "DIAGNOSTICS_URI" : "{{resource.assets.uris.diagnostics-zip}}",
     "EXECUTOR_URI": "{{resource.assets.uris.executor-zip}}",
     "SCHEDULER_URI": "{{resource.assets.uris.scheduler-zip}}",
@@ -64,6 +64,7 @@
 
     "DEPLOY_STRATEGY": "{{service.deploy_strategy}}",
     "UPDATE_STRATEGY": "{{service.update_strategy}}",
+
     "MASTER_NODE_CPUS": "{{master_nodes.cpus}}",
     "MASTER_NODE_MEM": "{{master_nodes.mem}}",
     "MASTER_NODE_PLACEMENT": "{{master_nodes.placement}}",
@@ -71,6 +72,7 @@
     "MASTER_NODE_DISK": "{{master_nodes.disk}}",
     "MASTER_NODE_DISK_TYPE": "{{master_nodes.disk_type}}",
     "MASTER_NODE_TRANSPORT_PORT": "{{master_nodes.transport_port}}",
+
     "DATA_NODE_COUNT": "{{data_nodes.count}}",
     "DATA_NODE_CPUS": "{{data_nodes.cpus}}",
     "DATA_NODE_MEM": "{{data_nodes.mem}}",
@@ -78,20 +80,7 @@
     "DATA_NODE_HEAP_MB": "{{data_nodes.heap.size}}",
     "DATA_NODE_DISK": "{{data_nodes.disk}}",
     "DATA_NODE_DISK_TYPE": "{{data_nodes.disk_type}}",
-    "INGEST_NODE_COUNT": "{{ingest_nodes.count}}",
-    "INGEST_NODE_CPUS": "{{ingest_nodes.cpus}}",
-    "INGEST_NODE_MEM": "{{ingest_nodes.mem}}",
-    "INGEST_NODE_PLACEMENT": "{{ingest_nodes.placement}}",
-    "INGEST_NODE_HEAP_MB": "{{ingest_nodes.heap.size}}",
-    "INGEST_NODE_DISK": "{{ingest_nodes.disk}}",
-    "INGEST_NODE_DISK_TYPE": "{{ingest_nodes.disk_type}}",
-    "COORDINATOR_NODE_COUNT": "{{coordinator_nodes.count}}",
-    "COORDINATOR_NODE_CPUS": "{{coordinator_nodes.cpus}}",
-    "COORDINATOR_NODE_MEM": "{{coordinator_nodes.mem}}",
-    "COORDINATOR_NODE_PLACEMENT": "{{coordinator_nodes.placement}}",
-    "COORDINATOR_NODE_HEAP_MB": "{{coordinator_nodes.heap.size}}",
-    "COORDINATOR_NODE_DISK": "{{coordinator_nodes.disk}}",
-    "COORDINATOR_NODE_DISK_TYPE": "{{coordinator_nodes.disk_type}}",
+
     "TASKCFG_ALL_XPACK_ENABLED": "{{elasticsearch.xpack_enabled}}",
     "ELASTICSEARCH_HEALTH_USER": "{{elasticsearch.health_user}}",
     "ELASTICSEARCH_HEALTH_USER_PASSWORD": "{{elasticsearch.health_user_password}}",

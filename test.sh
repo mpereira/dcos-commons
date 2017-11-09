@@ -204,4 +204,4 @@ docker run --rm \
     -t \
     -i \
     mesosphere/dcos-commons:latest \
-    $DOCKER_COMMAND
+    bash
